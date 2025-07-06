@@ -32,7 +32,7 @@ Cross-site scripting (XSS) is a vulnerability that enables attackers to inject m
 ## 🔍 Example Scenarios
 
 ### 1.	DOM XSS in document.write sink using source location.search
-­	 ![DOM XSS](screenshots/1.DOM%20XSS%20in%20document.write%20sink%20using%20source%20location.search.png)
+­	 ![DOM XSS]('screenshot/1.DOM XSS in document.write sink using source location.search.png')
 -­	document.write() writes raw HTML into the page.
 ­-      "><svg src=x onload=alert(1)>
 ### 2.	DOM XSS in document.write sink using source location.search inside a select element
